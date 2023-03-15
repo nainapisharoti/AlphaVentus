@@ -28,11 +28,12 @@ def plot_isosurfaces_instant(pickle_file_name, qoi, tstamp, a, zloc):
     DY = pickled_data_read['dY']
     scalars = QOI[tstamp] #QOI at desired time step
     z = int(zloc[0])
+    #print(type(a))
     
     #mlab.options.offscreen = True
     
     src = mlab.pipeline.scalar_field(scalars)
-    obj = mlab.pipeline.iso_surface(src, colormap = 'rainbow', contours=a,extent=[z-20,z+20,0,DX-1,0,DY-1], opacity=0.5, vmin=0.005,vmax=0.01)
+    obj = mlab.pipeline.iso_surface(src, colormap = 'rainbow', contours=a,extent=[z-20,z+20,0,DX-1,0,DY-1], opacity=0.5, vmin=a[0],vmax=a[-1])
     clb = mlab.colorbar(obj)
     clb.number_of_colors = 20
     mlab.view(0,270, distance=200) #(180,270: view from top)

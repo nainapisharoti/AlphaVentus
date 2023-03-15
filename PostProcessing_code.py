@@ -119,8 +119,10 @@ with open(pickle_file_3d, 'wb') as pickle_file_handle:
     pickle.dump(pickled_data_3d, pickle_file_handle)
 
 # In[]
+#"Ensure to type : '%gui qt' before implementing Iso-surfaces"
 #Plot 3d iso-surfaces
-iso_values = list(np.linspace(0.005,0.009,4))
+iso_values = list(np.linspace(0.005,0.01,5))
+#iso_values = list(np.linspace(1,2.5,15))
 plot_isosurfaces_instant(pickle_file_3d, threedim_qoi[2], t_stamp, iso_values, z_plane_locs)
 #plot_isosurfaces_animate(pickle_file_3d, threedim_qoi[2], t_start, t_end, iso_values, z_plane_locs)
 
